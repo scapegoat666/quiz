@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+
+    <!--Import Google Icon Font-->
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+
+
+      <!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+  </head>
+  <body>
+      <title><img src="https://www.google.co.th/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwjtr_OAw7zTAhWMp5QKHUphAj0QjRwIBw&url=http%3A%2F%2Fwww.flaticon.com%2F&psig=AFQjCNEnJFUVE0KwU6T5MGfIed4DQ2CZNQ&ust=1493103734556923" ></img>Webnet</title>
+      <nav>
+    <div class="nav-wrapper">
+      <a href="#!" class="brand-logo center">5730211069</a>
+      <ul class="left hide-on-med-and-down">
+        <li class="active"><a href="index.html">  <i class=" medium material-icons">recent_actors</i></a></li>
+        <li><a href="index.html">HOME</a></li>
+      </ul>
+    </div>
+  </nav>
+      <div class="container">
+        <div class="row">
+          <div class="col s12">
+            <!-- Promo Content 1 goes here -->
+          </div>
+      </div>
+
+    <div class="row">
+
+      <div class="col s4">
+        <!-- Promo Content 1 goes here -->
+      </div>
+      <div class="col s4">
+              <div class="row">
+            <form class="col s12">
+              <div class="row">
+
+                <div >
+                  <i class=" medium material-icons">person_pin</i>
+                    <label for="first_name">User name</label>
+                  <input  type="text" class="form-control" id="username" placeholder="">
+
+
+                </div>
+                <br>
+                <div >
+                  <i class=" medium material-icons">label_outline</i>
+                  <label for="last_name">Password</label>
+                  <input type="password" class="form-control" id="password" placeholder="">
+
+
+                </div>
+
+              <div class="form-group">
+                <button type="button" id="signin" class="btn btn-primary" name="button">Sign In</button>
+              </div>
+              </div>
+          </form>
+      </div>
+      <!--<div id="err" style="display:none" class="alert alert-danger alert-dismissable fade in">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">x</a>
+        <strong>Incorrect username or password</strong>
+        Please check your password.
+      </div>-->
+          </div>
+      </div>
+      <div class="col s4">
+        <!-- Promo Content 3 goes here -->
+      </div>
+
+    </div>
+
+
+    <script type="text/javascript">
+      $("#signin").click(function() {
+        var url = "http://membershipwebapi977290.azurewebsites.net/api/Members/signin?";
+        url += "username=" + $("#username").val();
+        url += "&password=" + $("#password").val();
+        console.log(url);
+        $.get(url, function(data, status) {
+          console.log(data);
+          if(data == true){
+            //Goto User's info
+          }else{
+            //Goto Sign up
+            $("#err").show();
+            //window.location.href = "signup.html";
+          }
+        });
+      });
+    </script>
+
+
+  </body>
+</html>
